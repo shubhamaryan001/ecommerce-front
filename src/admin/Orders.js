@@ -60,8 +60,8 @@ const Orders = () => {
     }
   };
 
-  const handleStatusChange = (e, orderId) => {
-    updateOrderStatus(user._id, token, orderId, e.target.value).then(data => {
+  const handleStatusChange = (e, orderId,orderEmail) => {
+    updateOrderStatus(user._id, token, orderId, e.target.value,orderEmail).then(data => {
       if (data.error) {
         console.log("Status update failed");
       } else {
@@ -72,9 +72,11 @@ const Orders = () => {
   const showStatus = o => (
     <div className="form-group">
       <h3 className="mark mb-4">Status: {o.status}</h3>
+      <h3 className="mark mb-4">Status: {o.user.email}</h3>
+
       <select
         className="form-control"
-        onChange={e => handleStatusChange(e, o._id)}
+        onChange={e => handleStatusChange(e, o._id,o.user.email)}
       >
         <option>Update Status</option>
         {statusValues.map((status, index) => (

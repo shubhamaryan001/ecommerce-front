@@ -7,8 +7,8 @@ import { FiChevronsDown } from "react-icons/fi";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "saurabharyan30@gmail.com",
-    password: "intex472",
+    email: "",
+    password: "",
     error: "",
     success: false,
     redirectToReferrer: false
